@@ -1,0 +1,57 @@
+2020-09-03 12:51:26.143887+05:00 [info] <0.11688.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2020-09-03 12:51:26.160168+05:00 [critical] <0.11688.0>@ejabberd_app:start/2:71 Failed to start ejabberd application: Failed to read YAML file '/home/pc/Documents/Projects/ejabberd/config/ejabberd.yml': no such file or directory
+2020-09-03 12:52:34.657928+05:00 [info] <0.3216.0>@ejabberd_config:load/1:82 Loading configuration from config/ejabberd.yml
+2020-09-03 12:52:34.673539+05:00 [warning] <0.3216.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2020-09-03 12:52:34.673780+05:00 [warning] <0.3216.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'web_admin' is deprecated and was automatically replaced by HTTP request handler: "/admin" -> ejabberd_web_admin. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2020-09-03 12:52:34.673951+05:00 [warning] <0.3216.0>@ejabberd_config_transformer:warn_replaced_handler/2:542 Listening option 'captcha' is deprecated and was automatically replaced by HTTP request handler: "/captcha" -> ejabberd_captcha. Please adjust your configuration file accordingly. Hint: run `ejabberdctl dump-config` command to view current configuration as it is seen by ejabberd.
+2020-09-03 12:52:34.674155+05:00 [warning] <0.3216.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rotate_date' is deprecated and has no effect anymore. Please remove it from the configuration.
+2020-09-03 12:52:34.674287+05:00 [warning] <0.3216.0>@ejabberd_config_transformer:warn_removed_option/1:557 Option 'log_rate_limit' is deprecated and has no effect anymore. Please remove it from the configuration.
+2020-09-03 12:52:34.826634+05:00 [info] <0.3216.0>@ejabberd_config:load/1:89 Configuration loaded successfully
+2020-09-03 12:52:35.134046+05:00 [info] <0.3468.0>@translate:load/2:127 Building language translation cache
+2020-09-03 12:52:35.246424+05:00 [info] <0.3417.0>@ejabberd_mnesia:create/2:267 Creating Mnesia ram table 'ejabberd_commands'
+2020-09-03 12:52:35.290113+05:00 [error] <0.3535.0>@ejabberd_listener:report_socket_error/3:470 Failed to open socket at [::]:5222 for ejabberd_c2s: address already in use
+2020-09-03 12:52:35.290492+05:00 [error] <0.3534.0>@supervisor:start_children/2:357 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_listener}
+    errorContext: start_error
+    reason: eaddrinuse
+    offender: [{pid,undefined},
+               {id,{5222,{0,0,0,0,0,0,0,0},tcp}},
+               {mfargs,
+                   {ejabberd_listener,start,
+                       [{5222,{0,0,0,0,0,0,0,0},tcp},
+                        ejabberd_c2s,
+                        #{accept_interval => 0,access => c2s,backlog => 5,
+                          cafile => undefined,ciphers => undefined,
+                          dhfile => undefined,
+                          ip => {0,0,0,0,0,0,0,0},
+                          max_fsm_queue => 10000,max_stanza_size => 262144,
+                          protocol_options => undefined,shaper => c2s_shaper,
+                          starttls => false,starttls_required => true,
+                          supervisor => true,tls => false,
+                          tls_compression => false,tls_verify => false,
+                          transport => tcp,use_proxy_protocol => false,
+                          zlib => false}]}},
+               {restart_type,transient},
+               {shutdown,brutal_kill},
+               {child_type,worker}]
+2020-09-03 12:52:35.291375+05:00 [error] <0.3465.0>@supervisor:start_children/2:357 SUPERVISOR REPORT:
+    supervisor: {local,ejabberd_sup}
+    errorContext: start_error
+    reason: {shutdown,
+                {failed_to_start_child,
+                    {5222,{0,0,0,0,0,0,0,0},tcp},
+                    eaddrinuse}}
+    offender: [{pid,undefined},
+               {id,ejabberd_listener},
+               {mfargs,{ejabberd_listener,start_link,[]}},
+               {restart_type,permanent},
+               {shutdown,infinity},
+               {child_type,supervisor}]
+2020-09-03 12:52:35.298661+05:00 [critical] <0.3216.0>@ejabberd_app:start/2:67 Failed to start ejabberd application: {error,
+                                       {shutdown,
+                                        {failed_to_start_child,
+                                         ejabberd_listener,
+                                         {shutdown,
+                                          {failed_to_start_child,
+                                           {5222,{0,0,0,0,0,0,0,0},tcp},
+                                           eaddrinuse}}}}}
